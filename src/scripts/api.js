@@ -8,9 +8,9 @@ const buscaInfosLista = async () => {
     const modalContent = document.getElementsByClassName("modal-content");
     modalContent.item(0).innerHTML = '';
     for (var i = 0; i < listaJson.length; i++) {
-        const text = document.createElement("span");
-        text.textContent = listaJson[i].name;
-        modalContent.item(0).appendChild(text);
+        const img = document.createElement("img");
+        img.setAttribute('src', listaJson[i].image);
+        modalContent.item(0).appendChild(img);
     }
 }
 

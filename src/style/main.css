@@ -147,6 +147,12 @@ body {
     display: none;
     box-shadow: 0px 0px 60px 2px #98ce4ca3;
 }
+.modal-content-lista img{
+    width: 80px;
+    margin-left: 35px;
+    margin-top: 20px;
+}
+
 #modal .btn-fechar{
     cursor: pointer;
     display: inline;
