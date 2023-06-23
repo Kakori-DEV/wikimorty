@@ -12,6 +12,9 @@
     <title>Rick and Morty</title>
 </head>
 <body>
+    <video autoplay muted loop id="myVideo">
+        <source src="/src/resources/img/video.mp4" type="video/mp4">
+      </video>
     <header id="main-header">
         <div class="wrapper">
             <img src="src/resources/img/logo.png" alt="League Portal">
@@ -28,7 +31,7 @@
     <div id="modal">
         <div class="modal-content-lista">
             <div class="modal-menu">
-                <h1>Meus favoritos</h1>
+                <h1 class="h1-modal">Meus favoritos</h1>
                 <span class="btn-fechar" onclick="fecharModal('modal-content-lista')">X</span>
             </div>
             <div class="modal-content">
@@ -42,9 +45,11 @@
             <div class="body1">             
                 <div class="lista-personagens">
                     <h1>Lista de personagens</h1>
-                    <button class="voltar-pagina-disabled" style="background-color: grey;">Anterior</button>
-                    <button onclick="voltarPagina()" class="voltar-pagina">Anterior</button>
-                    <button onclick="proximaPagina()">Próximo</button>  
+                    <div class="wrapper-paginacao">
+                        <button class="voltar-pagina-disabled" style="background-color: grey;">◀</button>
+                        <button onclick="voltarPagina()" class="voltar-pagina">◀</button>
+                        <button onclick="proximaPagina()">▶</button> 
+                    </div>
                 </div>
             </div>
             <div class="body2">
@@ -58,7 +63,7 @@
                     </div>
                 </div>
                 <div class="wrapper-btn">
-                    <button class="btn-favoritar">💚</button>
+                    <button class="btn-favoritar">🥒</button>
                     <button class="btn-salvar">Salvar lista</button>
                 </div>
                 <div class="lista-pre-save">
