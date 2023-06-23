@@ -3,17 +3,26 @@ html, body {
     margin: 0;
 }
 body {
-    background-image: url('/src/resources/img/background.jpg');
+    /* background-image: url('/src/resources/img/video.mp4'); */
     color: #FFF;
     font-family: 'El Messiri', sans-serif;
-    background-repeat: no-repeat;
+    background-color: rgb(1 0 1);
+    /*background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: center;
-    background-size: 100%;
+    background-size: 100%; */
 }
+#myVideo {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: auto;
+    height: 100%;
+    z-index: -1;
+  }
 #main-header{
     height: 60px;
-    background: #1f1f1f;
+    background: rgb(1 0 1);
     padding: 0 20px;
     margin-bottom:20px;
 }
@@ -51,13 +60,13 @@ body {
     font-size: 2vw;
 }
 .body{
-    background-color: #080808f7;
+    background-color: #080808da;
     height: 850px;
     width: 1200px;
     margin: auto;
     padding: 10px;
     border-radius: 3px;
-    box-shadow: 0px 0px 20px 20px #121212d8;
+    box-shadow: 0px 0px 20px 20px rgba(1, 0, 1, 0.822);
 }
 .body1{
     width: 40%;
@@ -117,10 +126,13 @@ body {
 .voltar-pagina{
     display: none;
 }
+.wrapper-paginacao{
+    margin-left: 20px;
+}
 .lista-personagens button{
     border: none;
     outline: inherit;
-    color: #44281d;
+    color: #272321;
     background-color: #f0e14a;
     font-family: 'El Messiri', sans-serif;
     font-weight: bold;
@@ -137,7 +149,9 @@ body {
     display: none;
     z-index: 1;
 }
-
+.h1-modal{
+    margin-left: 20px;
+}
 .modal-content-lista{
     background-color: #97ce4c;
     border-radius: 3px;
@@ -148,7 +162,7 @@ body {
     box-shadow: 0px 0px 60px 2px #98ce4ca3;
 }
 .modal-content-lista img{
-    width: 80px;
+    width: 120px;
     margin-left: 35px;
     margin-top: 20px;
 }
@@ -195,7 +209,7 @@ body {
     padding-bottom: 10px;
 }
 .lista-pre-save{
-    width: 300px;
+    width: 360px;
     margin: auto;
     padding-top: 10px;
     display: none;
