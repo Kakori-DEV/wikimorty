@@ -26,28 +26,30 @@ function buscaInfosLocal(){
         console.log('pinto')
         const idChar = localStorage.getItem(i);
 
-        const div = document.createElement("div");
-        div.className = 'item-list';
-        div.setAttribute('onclick',"openModalCharacter("+idChar+")")
-        div.style.cursor = 'pointer';
+        if(idChar != 0){
+            const div = document.createElement("div");
+            div.className = 'item-list';
+            div.setAttribute('onclick',"openModalCharacter("+idChar+")")
+            div.style.cursor = 'pointer';
 
-        const img = document.createElement("img");
-        img.setAttribute('src', localStorage.getItem('img'+idChar));
+            const img = document.createElement("img");
+            img.setAttribute('src', localStorage.getItem('img'+idChar));
 
-        const status = localStorage.getItem('status'+idChar);
+            const status = localStorage.getItem('status'+idChar);
 
-        const span = document.createElement("span");
-        span.textContent = localStorage.getItem('nome'+idChar);
+            const span = document.createElement("span");
+            span.textContent = localStorage.getItem('nome'+idChar);
 
-        if(status === 'Dead'){   
-            img.style.filter = 'grayscale(100%)';
-            span.style.color = '#F00'
-            span.style.fontWeight = 'bold';
+            if(status === 'Dead'){   
+                img.style.filter = 'grayscale(100%)';
+                span.style.color = '#F00'
+                span.style.fontWeight = 'bold';
+            }
+
+            div.appendChild(img);
+            div.appendChild(span);
+            modalContent.appendChild(div);
         }
-
-        div.appendChild(img);
-        div.appendChild(span);
-        modalContent.appendChild(div);
     }
 }
 
@@ -100,7 +102,29 @@ const openModalCharacter = async (id) => {
     ulChar.appendChild(liChar4);
     modalContent.appendChild(ulChar);
 
+    document.querySelector('.btn-excluir').setAttribute('onclick','excludeCharacterList('+id+')')
     document.querySelector('.btn-editar').setAttribute('onclick','editCharacter('+id+')')
+}
+
+const excludeCharacterList = async (id) => {
+    for (var i = 0; i <= localStorage.getItem('lenght'); i++) {
+        const indexId = localStorage.getItem(i);
+        if(indexId == id){
+            localStorage.setItem(i,0);
+        }
+    }
+    localStorage.removeItem('nome'+id);
+    localStorage.removeItem('img'+id);
+    localStorage.removeItem('gender'+id);
+    localStorage.removeItem('origin'+id);
+    localStorage.removeItem('species'+id);
+    localStorage.removeItem('status'+id);
+    await buscaInfosLocal();
+    const modalContentChar = document.querySelector('.modal-content-character');
+    modalContentChar.style.display = 'none'
+    const modalContentLista = document.querySelector('.modal-content-lista');
+    modalContentLista.style.display = 'block'; 
+    
 }
 
 function editCharacter(id){
